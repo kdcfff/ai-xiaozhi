@@ -1,14 +1,17 @@
 server:
   port: 8123
+spring:
+  profiles:
+    active: local
 langchain4j:
   openai:
     chat-model:
-      base-url: http://langchain4j.dev/demo/openai/v1
-      api-key: demo
-      model-name: gpt-4o-mini
+      base-url: https://api.deepseek.com
+      api-key: ${DEEPSEEK_APIKEY}
+      model-name: deepseek-chat
       log-requests: true
       log-responses: true
 #配置目录输出级别为debug
-logging:
-  level:
-    root: debug
+#logging:
+#  level:
+#    root: debug
