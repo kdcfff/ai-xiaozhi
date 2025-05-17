@@ -1,0 +1,14 @@
+server:
+  port: 8123
+langchain4j:
+  openai:
+    chat-model:
+      base-url: http://langchain4j.dev/demo/openai/v1
+      api-key: demo
+      model-name: gpt-4o-mini
+      log-requests: true
+      log-responses: true
+#配置目录输出级别为debug
+logging:
+  level:
+    root: debug
