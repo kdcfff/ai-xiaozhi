@@ -12,40 +12,57 @@ import org.springframework.core.env.Environment;
 
 @SpringBootTest
 public class testLangchainApi {
+    /**
+     * 测试类中的主方法，用于演示如何使用OpenAiChatModel进行聊天
+     * 此方法构建了一个OpenAiChatModel实例，并使用该实例发送一个简单的问候消息
+     *
+     * @param args 命令行参数，本例中未使用
+     */
     @Test
     public void main(String[] args) {
+        // 构建一个OpenAiChatModel实例，配置必要的参数
         OpenAiChatModel model = OpenAiChatModel.builder()
-                .baseUrl("http://langchain4j.dev/demo/openai/v1")
-                .apiKey("demo")
-                .modelName("gpt-4o-mini")
+                .baseUrl("http://langchain4j.dev/demo/openai/v1") // 设置基础URL
+                .apiKey("demo") // 设置API密钥
+                .modelName("gpt-4o-mini") // 设置模型名称
                 .build();
+
+        // 使用构建好的模型实例进行聊天，发送一个"Hello"消息
         String message = model.chat("Hello");
+
+        // 打印模型返回的消息
         System.out.println(message);
     }
 
+
     @Autowired
     private OpenAiChatModel openAiChatModel;
+
     @Test
-    public void testLangchainApi(){
+    public void testLangchainApi() {
         String hello = openAiChatModel.chat("你好，你是deepseek吗");
         System.out.println(hello);
     }
+
     @Autowired
     private QwenChatModel qwenChatModel;
+
     @Test
-    public void qweniApi(){
+    public void qweniApi() {
         String chat = qwenChatModel.chat("你好,你是谁");
         System.out.println(chat);
     }
 
     @Autowired
     private Environment env;
+
     @Test
-    public void dashApi(){
+    public void dashApi() {
         System.out.println(env.getProperty("langchain4j.community.dashscope.chat-model.apikey"));
     }
+
     @Test
-    public void wanxApi(){
+    public void wanxApi() {
         WanxImageModel wanxImageModel = WanxImageModel.builder()
                 .apiKey(env.getProperty("langchain4j.community.dashscope.chat-model.apikey"))
                 .modelName("wanx2.1-t2i-turbo")
