@@ -61,6 +61,9 @@ public class testLangchainApi {
         System.out.println(env.getProperty("langchain4j.community.dashscope.chat-model.apikey"));
     }
 
+    /**
+     * 测试dashscope的绘图api
+     */
     @Test
     public void wanxApi() {
         WanxImageModel wanxImageModel = WanxImageModel.builder()
