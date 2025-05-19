@@ -1,6 +1,7 @@
 package com.itkd.assistant;
 
 import dev.langchain4j.service.MemoryId;
+import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;
 
@@ -20,5 +21,7 @@ public interface SeparateChatAssistant {
      * @param userMessage 用户消息
      * @return
      */
+    //@SystemMessage("你是一个医生，请认真回答我的问题")
+    @SystemMessage("今天是{{current_time}}")
     String chat(@MemoryId int memoryId, @UserMessage String userMessage);
 }
