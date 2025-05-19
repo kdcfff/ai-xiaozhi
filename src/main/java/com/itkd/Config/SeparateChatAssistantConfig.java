@@ -12,7 +12,10 @@ import org.springframework.context.annotation.Configuration;
 public class SeparateChatAssistantConfig {
     @Bean
     public ChatMemoryProvider chatMemoryProvider() {
-        return memoryId -> MessageWindowChatMemory.builder().id(memoryId).maxMessages(10).build();
+        return memoryId -> MessageWindowChatMemory.builder()
+                .id(memoryId)
+                .maxMessages(10)
+                .build();
     }
 
 }

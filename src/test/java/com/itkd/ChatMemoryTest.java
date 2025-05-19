@@ -2,6 +2,7 @@ package com.itkd;
 
 import com.itkd.assistant.Assistant;
 import com.itkd.assistant.ChatMemoryAssistant;
+import com.itkd.assistant.SeparateChatAssistant;
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.UserMessage;
@@ -76,6 +77,20 @@ public class ChatMemoryTest {
         System.out.println(chat);
         String chat1 = chatMemoryAssistant.chat("我是谁");
         System.out.println(chat1);
+    }
+
+    @Autowired
+    SeparateChatAssistant separateChatAssistant;
+    @Test
+    public void testChatMemory5() {
+        String chat = separateChatAssistant.chat(1, "我是环环");
+        System.out.println(chat);
+        String chat1 = separateChatAssistant.chat(1, "我是谁");
+        System.out.println(chat1);
+
+        //其他用户
+        String chat2 = separateChatAssistant.chat(2, "我是谁");
+        System.out.println(chat2);
     }
 
 }
