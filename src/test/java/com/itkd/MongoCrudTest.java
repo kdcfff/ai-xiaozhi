@@ -11,6 +11,9 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+/**
+ * MongoDB测试
+ */
 @SpringBootTest
 public class MongoCrudTest {
 

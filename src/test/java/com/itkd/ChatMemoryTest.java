@@ -69,6 +69,10 @@ public class ChatMemoryTest {
         String answer2 = assistant.chat("我是谁");
         System.out.println(answer2);
     }
+
+    /**
+     * 测试ChatMemoryAssistant，测试是否有聊天记录
+     */
     @Autowired
     ChatMemoryAssistant chatMemoryAssistant;
     @Test
