@@ -1,24 +1,22 @@
-package com.itkd.Config;
-
+package com.itkd.config;
 
 import com.itkd.store.MongoChatMemoryStore;
-import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
-import dev.langchain4j.service.MemoryId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class SeparateChatAssistantConfig {
+public class XiaozhiAgentConfig {
+
     @Autowired
     MongoChatMemoryStore mongoChatMemoryStore;
     @Bean
-    public ChatMemoryProvider chatMemoryProvider() {
+    public ChatMemoryProvider chatMemoryProviderXiaozhi() {
         return memoryId -> MessageWindowChatMemory.builder()
                 .id(memoryId)
-                .maxMessages(10)
+                .maxMessages(20)
                 .chatMemoryStore(mongoChatMemoryStore)
                 .build();
     }

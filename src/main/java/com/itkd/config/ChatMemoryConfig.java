@@ -1,4 +1,4 @@
-package com.itkd.Config;
+package com.itkd.config;
 
 
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
